@@ -1,0 +1,15 @@
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\bin\Debug\net8.0\IntegrationTestPoc.Service.deps.json
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\bin\Debug\net8.0\IntegrationTestPoc.Service.dll
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\bin\Debug\net8.0\IntegrationTestPoc.Service.pdb
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\bin\Debug\net8.0\IntegrationTestPoc.Domain.dll
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\bin\Debug\net8.0\IntegrationTestPoc.Domain.pdb
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\IntegrationTestPoc.Service.csproj.AssemblyReference.cache
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\IntegrationTestPoc.Service.GeneratedMSBuildEditorConfig.editorconfig
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\IntegrationTestPoc.Service.AssemblyInfoInputs.cache
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\IntegrationTestPoc.Service.AssemblyInfo.cs
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\IntegrationTestPoc.Service.csproj.CoreCompileInputs.cache
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\Integrat.9AA5B837.Up2Date
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\IntegrationTestPoc.Service.dll
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\refint\IntegrationTestPoc.Service.dll
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\IntegrationTestPoc.Service.pdb
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\ref\IntegrationTestPoc.Service.dll

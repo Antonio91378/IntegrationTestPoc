@@ -1,0 +1,7 @@
+{
+  "IntegrationTestPoc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\TI\\antonio.dias\\Pocs\\IntegrationTestPoc\\IntegrationTestPoc",
+  "IntegrationTestPoc.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\TI\\antonio.dias\\Pocs\\IntegrationTestPoc\\IntegrationTestPoc.Domain",
+  "IntegrationTestPoc.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\TI\\antonio.dias\\Pocs\\IntegrationTestPoc\\IntegrationTestPoc.Service",
+  "IntegrationTestPoc.Util, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\TI\\antonio.dias\\Pocs\\IntegrationTestPoc\\IntegrationTestPoc.Util",
+  "IntegrationTestProc.Infra, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\TI\\antonio.dias\\Pocs\\IntegrationTestPoc\\IntegrationTestProc.Infra"
+}

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IntegrationTestPoc.Service\IntegrationTestPoc.Service.csproj" />
+    <ProjectReference Include="..\IntegrationTestProc.Infra\IntegrationTestProc.Infra.csproj" />
+    <ProjectReference Include="..\IntegrationTestPoc.Util\IntegrationTestPoc.Util.csproj" />
+  </ItemGroup>
+</Project>

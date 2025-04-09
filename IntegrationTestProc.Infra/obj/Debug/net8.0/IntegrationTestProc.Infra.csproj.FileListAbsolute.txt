@@ -1,0 +1,15 @@
+D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\bin\Debug\net8.0\IntegrationTestProc.Infra.deps.json
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\bin\Debug\net8.0\IntegrationTestProc.Infra.dll
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\bin\Debug\net8.0\IntegrationTestProc.Infra.pdb
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\bin\Debug\net8.0\IntegrationTestPoc.Domain.dll
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\bin\Debug\net8.0\IntegrationTestPoc.Domain.pdb
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\IntegrationTestProc.Infra.csproj.AssemblyReference.cache
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\IntegrationTestProc.Infra.GeneratedMSBuildEditorConfig.editorconfig
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\IntegrationTestProc.Infra.AssemblyInfoInputs.cache
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\IntegrationTestProc.Infra.AssemblyInfo.cs
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\IntegrationTestProc.Infra.csproj.CoreCompileInputs.cache
+D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\Integrat.18CDEFCF.Up2Date
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\IntegrationTestProc.Infra.dll
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\refint\IntegrationTestProc.Infra.dll
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\IntegrationTestProc.Infra.pdb
+D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\ref\IntegrationTestProc.Infra.dll

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "JG+qmeNJndMEdwn4yl+VWcmCjpe+p5HZX8QEwPVxPdQ=",
+  "Source": "IntegrationTestPoc",
+  "BasePath": "_content/IntegrationTestPoc",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "H4zco+nt/jw=",
+  "success": true,
+  "projectFilePath": "D:\\TI\\antonio.dias\\Pocs\\IntegrationTestPoc\\IntegrationTestPoc.Util\\IntegrationTestPoc.Util.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\antonio.dias\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
+    "C:\\Users\\antonio.dias\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\antonio.dias\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

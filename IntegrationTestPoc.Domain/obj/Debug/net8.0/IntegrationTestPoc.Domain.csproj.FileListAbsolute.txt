@@ -1,0 +1,12 @@
+D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Domain\bin\Debug\net8.0\IntegrationTestPoc.Domain.deps.json
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Domain\bin\Debug\net8.0\IntegrationTestPoc.Domain.dll
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Domain\bin\Debug\net8.0\IntegrationTestPoc.Domain.pdb
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Domain\obj\Debug\net8.0\IntegrationTestPoc.Domain.csproj.AssemblyReference.cache
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Domain\obj\Debug\net8.0\IntegrationTestPoc.Domain.GeneratedMSBuildEditorConfig.editorconfig
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Domain\obj\Debug\net8.0\IntegrationTestPoc.Domain.AssemblyInfoInputs.cache
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Domain\obj\Debug\net8.0\IntegrationTestPoc.Domain.AssemblyInfo.cs
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Domain\obj\Debug\net8.0\IntegrationTestPoc.Domain.csproj.CoreCompileInputs.cache
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Domain\obj\Debug\net8.0\IntegrationTestPoc.Domain.dll
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Domain\obj\Debug\net8.0\refint\IntegrationTestPoc.Domain.dll
+d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Domain\obj\Debug\net8.0\IntegrationTestPoc.Domain.pdb
+D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Domain\obj\Debug\net8.0\ref\IntegrationTestPoc.Domain.dll

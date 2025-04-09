@@ -1,0 +1,26 @@
+Server=localhost,1433;Database=Database1;User Id=sa;Password=YourStrong@Password1;
+
+-- Criação da tabela WeatherForecast
+CREATE TABLE WeatherForecast (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Date DATETIME NOT NULL,
+    TemperatureC INT NOT NULL,
+    Summary NVARCHAR(MAX) NULL,
+    SecondaryId NVARCHAR(MAX) NULL -- Nova coluna adicionada
+);
+
+-- Inserção de 10 registros fictícios com SecondaryId como NULL
+INSERT INTO WeatherForecast (Date, TemperatureC, Summary, SecondaryId)
+VALUES 
+    ('2025-04-01', 15, 'Ensolarado', NULL),
+    ('2025-04-02', 18, 'Parcialmente nublado', NULL),
+    ('2025-04-03', 10, 'Chuvoso', NULL),
+    ('2025-04-04', 5, 'Nevando', NULL),
+    ('2025-04-05', 20, 'Quente', NULL),
+    ('2025-04-06', 12, 'Ventoso', NULL),
+    ('2025-04-07', 8, 'Frio', NULL),
+    ('2025-04-08', 25, 'Muito quente', NULL),
+    ('2025-04-09', 16, 'Ameno', NULL),
+    ('2025-04-10', 22, 'Céu limpo', NULL);
+
+    
