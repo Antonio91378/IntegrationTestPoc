@@ -13,3 +13,4 @@ d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\
 d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\refint\IntegrationTestPoc.Service.dll
 d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\IntegrationTestPoc.Service.pdb
 d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\ref\IntegrationTestPoc.Service.dll
+D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Service\obj\Debug\net8.0\IntegrationTestPoc.Service.sourcelink.json

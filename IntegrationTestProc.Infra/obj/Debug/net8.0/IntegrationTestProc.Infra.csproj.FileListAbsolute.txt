@@ -13,3 +13,4 @@ d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\n
 d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\refint\IntegrationTestProc.Infra.dll
 d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\IntegrationTestProc.Infra.pdb
 D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\ref\IntegrationTestProc.Infra.dll
+D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestProc.Infra\obj\Debug\net8.0\IntegrationTestProc.Infra.sourcelink.json

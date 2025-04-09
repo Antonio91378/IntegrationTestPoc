@@ -10,3 +10,4 @@ d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Util\obj\Debug\net
 d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Util\obj\Debug\net8.0\refint\IntegrationTestPoc.Util.dll
 d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Util\obj\Debug\net8.0\IntegrationTestPoc.Util.pdb
 d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Util\obj\Debug\net8.0\ref\IntegrationTestPoc.Util.dll
+D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Util\obj\Debug\net8.0\IntegrationTestPoc.Util.sourcelink.json

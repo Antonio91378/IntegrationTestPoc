@@ -19,6 +19,7 @@ builder.Services.AddScoped<IWeatherForecastRepository, WeatherForecastRepository
 builder.Services.AddScoped<IWeatherForecastService, WeatherForecastService>();
 builder.Services.AddTransient<IControllerMessenger, ControllerMessenger>();
 builder.Services.AddTransient<IAppConfiguration, AppConfiguration>();
+builder.Services.AddHttpClient();
 builder.Services.AddDbContext<Context>((serviceProvider, options) =>
 {
     var appConfiguration = serviceProvider.GetRequiredService<IAppConfiguration>();
@@ -36,6 +37,8 @@ builder.Configuration
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true)
     .AddEnvironmentVariables();
+
+    
 
 
 var app = builder.Build();

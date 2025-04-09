@@ -160,10 +160,263 @@ Este projeto utiliza as seguintes tecnologias e ferramentas:
       using var context = new Context(options); -->
       ```
 
+
+    ### Configurando dependências compartilhadas e metadados para os testes (Fixture, Collection e Trait no xUnit) 
+
+    O xUnit oferece recursos avançados para organizar e compartilhar configurações entre testes, como `Fixture`, `Collection` e `Trait`. Abaixo, explicamos cada um deles:
+
+    #### 1. **Fixture**
+    Fixtures são usadas para compartilhar objetos ou configurações entre vários testes. Elas ajudam a evitar a repetição de código e garantem que os recursos sejam configurados e descartados corretamente.
+
+    - **Exemplo de Fixture**:
+        ```csharp
+        public class DatabaseFixture : IDisposable
+        {
+                public DatabaseFixture()
+                {
+                        // Configuração inicial, como criar um banco de dados em memória
+                }
+
+                public void Dispose()
+                {
+                        // Limpeza de recursos
+                }
+        }
+        ```
+
+    #### 2. **Collection**
+    Collections permitem agrupar testes que compartilham a mesma fixture. Isso é útil para cenários onde múltiplas classes de teste precisam acessar os mesmos recursos.
+
+    - **Exemplo de Collection**:
+        ```csharp
+        [CollectionDefinition("Database collection")]
+        public class DatabaseCollection : ICollectionFixture<DatabaseFixture>
+        {
+                // Esta classe não precisa conter código, apenas define a coleção
+        }
+
+        [Collection("Database collection")]
+        public class TestClass1
+        {
+                private readonly DatabaseFixture _fixture;
+
+                public TestClass1(DatabaseFixture fixture)
+                {
+                        _fixture = fixture;
+                }
+
+                [Fact]
+                public void Test1()
+                {
+                        // Teste utilizando a fixture compartilhada
+                }
+        }
+
+        [Collection("Database collection")]
+        public class TestClass2
+        {
+                private readonly DatabaseFixture _fixture;
+
+                public TestClass2(DatabaseFixture fixture)
+                {
+                        _fixture = fixture;
+                }
+
+                [Fact]
+                public void Test2()
+                {
+                        // Outro teste utilizando a mesma fixture
+                }
+        }
+        ```
+
+    #### 3. **Trait**
+    Traits são usados para categorizar testes, permitindo filtrá-los durante a execução. Você pode utilizá-los para marcar testes com atributos como "Categoria", "Prioridade", etc.
+
+    - **Exemplo de Trait**:
+        ```csharp
+        public class TraitExampleTests
+        {
+                [Fact]
+                [Trait("Category", "Integration")]
+                public void IntegrationTest()
+                {
+                        // Teste de integração
+                }
+
+                [Fact]
+                [Trait("Category", "Unit")]
+                public void UnitTest()
+                {
+                        // Teste unitário
+                }
+        }
+        ```
+
+    - **Filtrando por Trait**:
+        Você pode executar testes específicos com base no `Trait` utilizando o comando:
+        ```bash
+        dotnet test --filter "Category=Integration"
+        ```
+
+    Esses recursos tornam o xUnit uma ferramenta poderosa para organizar e executar testes de forma eficiente, especialmente em projetos de grande escala.
 5. **Executando os Testes**  
     - Execute os testes utilizando o Test Explorer do Visual Studio ou o comando `dotnet test` no terminal.
 
+    ### Entendendo o Ciclo de Vida de Execução de Testes no xUnit
+
+    O xUnit é projetado para ser simples e eficiente, gerenciando automaticamente o ciclo de vida de execução dos testes. Abaixo, detalhamos como ele lida com a instanciação de fixtures, collections e a execução dos testes:
+
+    #### 1. **Instanciação de Classes de Teste**
+        - Para cada teste, o xUnit cria uma nova instância da classe de teste. Isso garante que os testes sejam isolados uns dos outros, evitando efeitos colaterais causados por estados compartilhados.
+        - Exemplo:
+          ```csharp
+          public class MyTests
+          {
+                private int _counter;
+
+                [Fact]
+                public void Test1()
+                {
+                     _counter++;
+                     Assert.Equal(1, _counter); // Sempre será 1, pois a classe é recriada para cada teste
+                }
+
+                [Fact]
+                public void Test2()
+                {
+                     _counter++;
+                     Assert.Equal(1, _counter); // Também será 1
+                }
+          }
+          ```
+
+    #### 2. **Fixtures e o Ciclo de Vida Compartilhado**
+        - Quando você utiliza uma `Fixture`, o xUnit cria uma única instância da fixture e a compartilha entre os testes que a utilizam.
+        - Isso é útil para inicializar recursos caros, como conexões de banco de dados ou configurações de ambiente, que podem ser reutilizados em vários testes.
+        - Exemplo:
+          ```csharp
+          public class SharedFixture : IDisposable
+          {
+                public SharedFixture()
+                {
+                     // Inicialização de recursos
+                }
+
+                public void Dispose()
+                {
+                     // Liberação de recursos
+                }
+          }
+
+          public class MyTests : IClassFixture<SharedFixture>
+          {
+                private readonly SharedFixture _fixture;
+
+                public MyTests(SharedFixture fixture)
+                {
+                     _fixture = fixture;
+                }
+
+                [Fact]
+                public void Test1()
+                {
+                     // Usa a mesma instância de _fixture
+                }
+
+                [Fact]
+                public void Test2()
+                {
+                     // Usa a mesma instância de _fixture
+                }
+          }
+          ```
+
+    #### 3. **Collections e Execução Paralela**
+        - O xUnit agrupa testes em `Collections` para controlar a execução paralela. Testes na mesma coleção são executados sequencialmente, enquanto testes em coleções diferentes podem ser executados em paralelo.
+        - Isso é útil para evitar conflitos em recursos compartilhados, como bancos de dados ou arquivos.
+        - Exemplo:
+          ```csharp
+          [CollectionDefinition("Database collection")]
+          public class DatabaseCollection : ICollectionFixture<SharedFixture>
+          {
+          }
+
+          [Collection("Database collection")]
+          public class TestClass1
+          {
+                // Testes que compartilham a mesma fixture
+          }
+
+          [Collection("Database collection")]
+          public class TestClass2
+          {
+                // Testes que compartilham a mesma fixture
+          }
+          ```
+
+    #### 4. **Execução dos Testes**
+        - O xUnit segue uma ordem específica para executar os testes:
+          1. Inicializa as fixtures e collections necessárias.
+          2. Cria uma instância da classe de teste.
+          3. Executa o método de teste.
+          4. Descarrega a classe de teste e, se aplicável, libera os recursos das fixtures.
+
+    #### 5. **Gerenciamento de Recursos**
+        - O xUnit utiliza o padrão `IDisposable` para liberar recursos automaticamente após a execução dos testes. Isso é especialmente útil para evitar vazamentos de memória ou conexões abertas.
+        - Exemplo:
+          ```csharp
+          public class ResourceFixture : IDisposable
+          {
+                public ResourceFixture()
+                {
+                     // Inicializa recursos
+                }
+
+                public void Dispose()
+                {
+                     // Libera recursos
+                }
+          }
+          ```
+
+    Com esse entendimento, você pode projetar testes mais eficientes e organizados, aproveitando ao máximo os recursos do xUnit.
+
 ---
+
+## Fixture de Banco de Dados
+
+A classe DatabaseFixture contida nesta POC implementa a interface IAsyncLifetime, que é usada pelo xUnit para gerenciar o ciclo de vida de fixtures assíncronas. Ela é responsável por configurar e limpar o ambiente de banco de dados antes e depois dos testes.
+### Construtor da Classe DatabaseFixture
+
+O construtor da classe `DatabaseFixture` realiza as seguintes operações:
+
+1. **Carregamento de Configurações**  
+    - Utiliza o `ConfigurationBuilder` para carregar os arquivos `appsettings.json` e `appsettings.Test.json`, além de variáveis de ambiente.
+    - Cria uma instância de `AppConfiguration` para acessar configurações como a string de conexão e a porta do banco de dados.
+
+2. **Criação de Rede Docker**  
+    - Chama `ContainerNetworkUtils.Build()` para criar uma rede Docker personalizada onde o container do banco de dados será executado.
+
+3. **Inicialização do Banco de Dados**  
+    - Instancia a classe `Database`, passando a rede Docker e as configurações do aplicativo para configurar o ambiente de testes.
+
+    ### Método DisposeAsync()
+
+    O método `DisposeAsync` é responsável por realizar a limpeza do ambiente de testes após a execução. Ele executa as seguintes operações:
+
+    1. **Limpeza do Banco de Dados**  
+        - Chama o método `DisposeAsync` da classe `Database` para parar e remover o container do banco de dados utilizado nos testes.
+
+    2. **Remoção da Rede Docker**  
+        - Remove a rede Docker criada especificamente para os testes, garantindo que não haja resíduos no ambiente.
+
+    3. **Tratamento de Exceções**  
+        - Captura e registra qualquer exceção que ocorra durante o processo de limpeza, evitando que erros não tratados interrompam o fluxo de execução.
+
+    Essa abordagem garante que o ambiente de testes seja completamente limpo e preparado para futuras execuções, evitando conflitos ou interferências.
+
+    
 
 ## Observações Finais
 

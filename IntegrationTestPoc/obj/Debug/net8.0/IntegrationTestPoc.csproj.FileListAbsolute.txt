@@ -104,3 +104,4 @@ d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc\obj\Debug\net8.0\I
 d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc\obj\Debug\net8.0\IntegrationTestPoc.genruntimeconfig.cache
 d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc\obj\Debug\net8.0\ref\IntegrationTestPoc.dll
 D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc\bin\Debug\net8.0\appsettings.Test.json
+D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc\obj\Debug\net8.0\IntegrationTestPoc.sourcelink.json
