@@ -91,7 +91,9 @@ Este projeto utiliza as seguintes tecnologias e ferramentas:
 
     - Certifique-se de adicionar os pacotes ao arquivo `.csproj` do projeto de teste, ou instale-os via NuGet Package Manager no Visual Studio ou com o comando `dotnet add package` no terminal.
 
-    ### Configurando dependências compartilhadas e metadados para os testes (Fixture, Collection e Trait no xUnit) 
+    ---
+
+    ## Configurando dependências compartilhadas e metadados para os testes (Fixture, Collection e Trait no xUnit) 
 
     O xUnit oferece recursos avançados para organizar e compartilhar configurações entre testes, como `Fixture`, `Collection` e `Trait`. Abaixo, explicamos cada um deles:
 
