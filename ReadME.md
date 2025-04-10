@@ -207,117 +207,117 @@ Este projeto utiliza as seguintes tecnologias e ferramentas:
     O xUnit é projetado para ser simples e eficiente, gerenciando automaticamente o ciclo de vida de execução dos testes. Abaixo, detalhamos como ele lida com a instanciação de fixtures, collections e a execução dos testes:
 
     #### 1. **Instanciação de Classes de Teste**
-        - Para cada teste, o xUnit cria uma nova instância da classe de teste. Isso garante que os testes sejam isolados uns dos outros, evitando efeitos colaterais causados por estados compartilhados.
-        - Exemplo:
-          ```csharp
-          public class MyTests
+    - Para cada teste, o xUnit cria uma nova instância da classe de teste. Isso garante que os testes sejam isolados uns dos outros, evitando efeitos colaterais causados por estados compartilhados.
+    - Exemplo:
+      ```csharp
+      public class MyTests
+      {
+          private int _counter;
+
+          [Fact]
+          public void Test1()
           {
-                private int _counter;
-
-                [Fact]
-                public void Test1()
-                {
-                     _counter++;
-                     Assert.Equal(1, _counter); // Sempre será 1, pois a classe é recriada para cada teste
-                }
-
-                [Fact]
-                public void Test2()
-                {
-                     _counter++;
-                     Assert.Equal(1, _counter); // Também será 1
-                }
+              _counter++;
+              Assert.Equal(1, _counter); // Sempre será 1, pois a classe é recriada para cada teste
           }
-          ```
+
+          [Fact]
+          public void Test2()
+          {
+              _counter++;
+              Assert.Equal(1, _counter); // Também será 1
+          }
+      }
+      ```
 
     #### 2. **Fixtures e o Ciclo de Vida Compartilhado**
-        - Quando você utiliza uma `Fixture`, o xUnit cria uma única instância da fixture e a compartilha entre os testes que a utilizam.
-        - Isso é útil para inicializar recursos caros, como conexões de banco de dados ou configurações de ambiente, que podem ser reutilizados em vários testes.
-        - Exemplo:
-          ```csharp
-          public class SharedFixture : IDisposable
+    - Quando você utiliza uma `Fixture`, o xUnit cria uma única instância da fixture e a compartilha entre os testes que a utilizam.
+    - Isso é útil para inicializar recursos caros, como conexões de banco de dados ou configurações de ambiente, que podem ser reutilizados em vários testes.
+    - Exemplo:
+      ```csharp
+      public class SharedFixture : IDisposable
+      {
+          public SharedFixture()
           {
-                public SharedFixture()
-                {
-                     // Inicialização de recursos
-                }
-
-                public void Dispose()
-                {
-                     // Liberação de recursos
-                }
+              // Inicialização de recursos
           }
 
-          public class MyTests : IClassFixture<SharedFixture>
+          public void Dispose()
           {
-                private readonly SharedFixture _fixture;
-
-                public MyTests(SharedFixture fixture)
-                {
-                     _fixture = fixture;
-                }
-
-                [Fact]
-                public void Test1()
-                {
-                     // Usa a mesma instância de _fixture
-                }
-
-                [Fact]
-                public void Test2()
-                {
-                     // Usa a mesma instância de _fixture
-                }
+              // Liberação de recursos
           }
-          ```
+      }
+
+      public class MyTests : IClassFixture<SharedFixture>
+      {
+          private readonly SharedFixture _fixture;
+
+          public MyTests(SharedFixture fixture)
+          {
+              _fixture = fixture;
+          }
+
+          [Fact]
+          public void Test1()
+          {
+              // Usa a mesma instância de _fixture
+          }
+
+          [Fact]
+          public void Test2()
+          {
+              // Usa a mesma instância de _fixture
+          }
+      }
+      ```
 
     #### 3. **Collections e Execução Paralela**
-        - O xUnit agrupa testes em `Collections` para controlar a execução paralela. Testes na mesma coleção são executados sequencialmente, enquanto testes em coleções diferentes podem ser executados em paralelo.
-        - Isso é útil para evitar conflitos em recursos compartilhados, como bancos de dados ou arquivos.
-        - Exemplo:
-          ```csharp
-          [CollectionDefinition("Database collection")]
-          public class DatabaseCollection : ICollectionFixture<SharedFixture>
-          {
-          }
+    - O xUnit agrupa testes em `Collections` para controlar a execução paralela. Testes na mesma coleção são executados sequencialmente, enquanto testes em coleções diferentes podem ser executados em paralelo.
+    - Isso é útil para evitar conflitos em recursos compartilhados, como bancos de dados ou arquivos.
+    - Exemplo:
+      ```csharp
+      [CollectionDefinition("Database collection")]
+      public class DatabaseCollection : ICollectionFixture<SharedFixture>
+      {
+      }
 
-          [Collection("Database collection")]
-          public class TestClass1
-          {
-                // Testes que compartilham a mesma fixture
-          }
+      [Collection("Database collection")]
+      public class TestClass1
+      {
+          // Testes que compartilham a mesma fixture
+      }
 
-          [Collection("Database collection")]
-          public class TestClass2
-          {
-                // Testes que compartilham a mesma fixture
-          }
-          ```
+      [Collection("Database collection")]
+      public class TestClass2
+      {
+          // Testes que compartilham a mesma fixture
+      }
+      ```
 
     #### 4. **Execução dos Testes**
-        - O xUnit segue uma ordem específica para executar os testes:
-          1. Inicializa as fixtures e collections necessárias.
-          2. Cria uma instância da classe de teste.
-          3. Executa o método de teste.
-          4. Descarrega a classe de teste e, se aplicável, libera os recursos das fixtures.
+    - O xUnit segue uma ordem específica para executar os testes:
+      1. Inicializa as fixtures e collections necessárias.
+      2. Cria uma instância da classe de teste.
+      3. Executa o método de teste.
+      4. Descarrega a classe de teste e, se aplicável, libera os recursos das fixtures.
 
     #### 5. **Gerenciamento de Recursos**
-        - O xUnit utiliza o padrão `IDisposable` para liberar recursos automaticamente após a execução dos testes. Isso é especialmente útil para evitar vazamentos de memória ou conexões abertas.
-        - Exemplo:
-          ```csharp
-          public class ResourceFixture : IDisposable
+    - O xUnit utiliza o padrão `IDisposable` para liberar recursos automaticamente após a execução dos testes. Isso é especialmente útil para evitar vazamentos de memória ou conexões abertas.
+    - Exemplo:
+      ```csharp
+      public class ResourceFixture : IDisposable
+      {
+          public ResourceFixture()
           {
-                public ResourceFixture()
-                {
-                     // Inicializa recursos
-                }
-
-                public void Dispose()
-                {
-                     // Libera recursos
-                }
+              // Inicializa recursos
           }
-          ```
+
+          public void Dispose()
+          {
+              // Libera recursos
+          }
+      }
+      ```
 
     Com esse entendimento, você pode projetar testes mais eficientes e organizados, aproveitando ao máximo os recursos do xUnit.
 
