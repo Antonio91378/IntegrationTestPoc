@@ -40,6 +40,13 @@ Este projeto utiliza as seguintes tecnologias e ferramentas:
     - Para facilitar o gerenciamento dos containers, utilize ferramentas como o **Rancher Desktop**:
       - Visualize e gerencie os containers de forma gráfica.
       - Inicie, pare ou remova containers conforme necessário.
+      - Configure o Rancher Desktop para utilizar o backend do WSL 2:
+        1. Acesse as configurações do Rancher Desktop.
+        2. Habilite o suporte ao WSL 2.
+        3. Escolha a distribuição Linux configurada anteriormente como backend.
+      - Certifique-se de que o Rancher Desktop está configurado para utilizar o container runtime **containerd** ou **dockerd**, dependendo da sua preferência.
+
+    - Após configurar o Rancher Desktop, você poderá criar e gerenciar os containers necessários para o projeto de forma simplificada.
       
 ---
 
