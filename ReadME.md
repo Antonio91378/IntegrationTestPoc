@@ -91,76 +91,6 @@ Este projeto utiliza as seguintes tecnologias e ferramentas:
 
     - Certifique-se de adicionar os pacotes ao arquivo `.csproj` do projeto de teste, ou instale-os via NuGet Package Manager no Visual Studio ou com o comando `dotnet add package` no terminal.
 
-
-    ### Implementando a Classe `TestStarterHelper`
-
-    A classe `TestStarterHelper` é uma ferramenta auxiliar para facilitar a configuração e execução de testes de integração. Ela gerencia o ciclo de vida do banco de dados, permitindo criar, popular e limpar tabelas de forma eficiente. Siga os passos abaixo para implementá-la:
-
-    1. **Adicione a Classe ao Projeto de Teste**  
-        - Crie uma pasta chamada `Helper` no projeto de teste.
-        - Adicione um novo arquivo chamado `TestStarterHelper.cs` e copie o código fornecido no arquivo `#file:TestStarterHelper.cs`.
-
-    2. **Configuração do Banco de Dados**  
-        - Certifique-se de que o projeto de teste possui uma configuração válida para o banco de dados. A classe utiliza o `IAppConfiguration` para obter a string de conexão. Implemente ou ajuste essa interface conforme necessário.
-
-    3. **Principais Funcionalidades**  
-        - **Criação do Banco de Dados**: O método `GenerateDatabase` cria o banco de dados com base no modelo definido.
-        - **Manipulação de Dados**: Métodos como `SeedAsync`, `SeedRangeAsync`, `GetEntityAsync`, e `GetEntitiesAsync` permitem inserir e consultar dados no banco.
-        - **Limpeza de Dados**: Métodos como `DeleteAllAsync` e `DeleteAllTablesAsync` ajudam a limpar as tabelas antes ou depois dos testes.
-        - **Gerenciamento de Transações**: O método `SeedRangeAsync` suporta a inserção de dados com `IDENTITY_INSERT` habilitado, útil para cenários onde IDs precisam ser controlados manualmente.
-
-    4. **Exemplo de Uso nos Testes**  
-        - Utilize a classe em seus testes para configurar o ambiente antes de cada execução. Por exemplo:
-          ```csharp
-          public class ExampleTests : IClassFixture<TestStarterHelper>
-          {
-                private readonly TestStarterHelper _helper;
-
-                public ExampleTests(TestStarterHelper helper)
-                {
-                     _helper = helper;
-                }
-
-                [Fact]
-                public async Task TestDatabaseSetup()
-                {
-                     // Limpa as tabelas antes do teste
-                     await _helper.DeleteAllTablesAsync();
-
-                     // Insere dados de teste
-                     var entity = new MyEntity { Id = 1, Name = "Test" };
-                     await _helper.SeedAsync(entity);
-
-                     // Valida os dados
-                     var result = await _helper.GetEntityAsync<MyEntity>(e => e.Id == 1);
-                     Assert.NotNull(result);
-                     Assert.Equal("Test", result.Name);
-                }
-          }
-          ```
-
-    5. **Gerenciamento de Recursos**  
-        - A classe implementa `IDisposable` para garantir que o contexto do banco de dados seja descartado corretamente após os testes. Certifique-se de utilizá-la em conjunto com o padrão `using` ou como um fixture no xUnit.
-
-    Com a `TestStarterHelper`, você pode simplificar a configuração e execução de testes de integração, garantindo um ambiente limpo e consistente para cada execução.
-
-<!-- 3. **Estruturando os Testes**  
-    - Crie pastas para organizar os testes, como `Controllers`, `Services`, `Repositories`, etc.
-    - Para cada camada, implemente testes cobrindo os cenários principais, como:
-      - Testes de integração para os controladores.
-      - Testes unitários para os serviços e repositórios. -->
-
-<!-- 4. **Configurando o Banco de Dados para Testes**  
-    - Utilize o [DbContext](http://_vscodecontentref_/3) configurado com o provedor `InMemory` para simular o banco de dados nos testes:
-      ```csharp
-      var options = new DbContextOptionsBuilder<Context>()
-          .UseInMemoryDatabase(databaseName: "TestDatabase")
-          .Options;
-
-      using var context = new Context(options); -->
-      ```
-
-
     ### Configurando dependências compartilhadas e metadados para os testes (Fixture, Collection e Trait no xUnit) 
 
     O xUnit oferece recursos avançados para organizar e compartilhar configurações entre testes, como `Fixture`, `Collection` e `Trait`. Abaixo, explicamos cada um deles:
@@ -416,7 +346,56 @@ O construtor da classe `DatabaseFixture` realiza as seguintes operações:
 
     Essa abordagem garante que o ambiente de testes seja completamente limpo e preparado para futuras execuções, evitando conflitos ou interferências.
 
-    
+
+    ### Implementando a Classe `TestStarterHelper`
+
+    A classe `TestStarterHelper` é uma ferramenta auxiliar para facilitar a configuração e execução de testes de integração. Ela gerencia o ciclo de vida do banco de dados, permitindo criar, popular e limpar tabelas de forma eficiente. Siga os passos abaixo para implementá-la:
+
+    1. **Adicione a Classe ao Projeto de Teste**  
+        - Crie uma pasta chamada `Helper` no projeto de teste.
+        - Adicione um novo arquivo chamado `TestStarterHelper.cs` e copie o código fornecido no arquivo `#file:TestStarterHelper.cs`.
+
+    2. **Configuração do Banco de Dados**  
+        - Certifique-se de que o projeto de teste possui uma configuração válida para o banco de dados. A classe utiliza o `IAppConfiguration` para obter a string de conexão. Implemente ou ajuste essa interface conforme necessário.
+
+    3. **Principais Funcionalidades**  
+        - **Criação do Banco de Dados**: O método `GenerateDatabase` cria o banco de dados com base no modelo definido.
+        - **Manipulação de Dados**: Métodos como `SeedAsync`, `SeedRangeAsync`, `GetEntityAsync`, e `GetEntitiesAsync` permitem inserir e consultar dados no banco.
+        - **Limpeza de Dados**: Métodos como `DeleteAllAsync` e `DeleteAllTablesAsync` ajudam a limpar as tabelas antes ou depois dos testes.
+        - **Gerenciamento de Transações**: O método `SeedRangeAsync` suporta a inserção de dados com `IDENTITY_INSERT` habilitado, útil para cenários onde IDs precisam ser controlados manualmente.
+
+    4. **Exemplo de Uso nos Testes**  
+        - Utilize a classe em seus testes para configurar o ambiente antes de cada execução. Por exemplo:
+          ```csharp
+          public class ExampleTests : IClassFixture<TestStarterHelper>
+          {
+                private readonly TestStarterHelper _helper;
+
+                public ExampleTests(TestStarterHelper helper)
+                {
+                     _helper = helper;
+                }
+
+                [Fact]
+                public async Task TestDatabaseSetup()
+                {
+                     // Limpa as tabelas antes do teste
+                     await _helper.DeleteAllTablesAsync();
+
+                     // Insere dados de teste
+                     var entity = new MyEntity { Id = 1, Name = "Test" };
+                     await _helper.SeedAsync(entity);
+
+                     // Valida os dados
+                     var result = await _helper.GetEntityAsync<MyEntity>(e => e.Id == 1);
+                     Assert.NotNull(result);
+                     Assert.Equal("Test", result.Name);
+                }
+          }
+          ```
+
+    Com a `TestStarterHelper`, você pode simplificar a configuração e execução de testes de integração, garantindo um ambiente limpo e consistente para cada execução.
+
 
 ## Observações Finais
 
