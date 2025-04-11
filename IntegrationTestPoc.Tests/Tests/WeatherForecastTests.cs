@@ -4,9 +4,9 @@ using IntegrationTestPoc.Domain;
 using IntegrationTestPoc.Tests.Helper;
 using IntegrationTestPoc.Tests.Infra;
 using IntegrationTestPoc.Tests.Utils;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
-using Xunit;
+using FluentAssertions;
+using IntegrationTestPoc.Domain.Utils;
 
 namespace IntegrationTestPoc.Tests.Tests;
 
@@ -30,14 +30,25 @@ public class WeatherForecastTests
     [Fact]
     public async Task GetAll_ReturnsOkAndData()
     {
+        // Arrange
+        var weatherForecasts = Enumerable.Range(1, 10).Select(i => new WeatherForecast
+        {
+            Date = DateTime.Now.AddDays(i),
+            TemperatureC = 20 + i,
+            Summary = $"Summary {i}",
+            SecondaryId = Guid.NewGuid().ToString()
+        }).ToList();
+
+        await _testStarterHelper.SeedRangeAsync(weatherForecasts);
+
         // Act
         var response = await _client.GetAsync("/api/WeatherForecast");
 
         // Assert
-        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
 
-        var forecasts = await response.Content.ReadFromJsonAsync<IEnumerable<WeatherForecast>>();
-        Assert.NotNull(forecasts);
-        Assert.True(forecasts.Any(), "The response should contain at least one weather forecast.");
+        var forecasts = await response.Content.ReadFromJsonAsync<ControllerMessenger>();
+        forecasts.Should().NotBeNull();
+        
     }
 }

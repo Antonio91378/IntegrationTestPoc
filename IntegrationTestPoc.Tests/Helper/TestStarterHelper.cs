@@ -31,7 +31,7 @@ public class TestStarterHelper : IDisposable
 
         try
         {
-            _dbContext.Database.ExecuteSqlRaw(createScript.Replace("GO", "").Replace("RrgaoEmissor", "RGOrgaoEmissor"));
+            _dbContext.Database.ExecuteSqlRaw(createScript.Replace("GO", ""));
         }
         catch (SqlException sqlException)
         {

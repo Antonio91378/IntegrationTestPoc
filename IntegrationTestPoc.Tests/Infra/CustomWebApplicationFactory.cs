@@ -16,6 +16,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         
         builder.ConfigureServices((context, services) =>
         {
+            builder.UseEnvironment("test");
             var configuration = context.Configuration;
             var appConfiguration = new AppConfiguration(configuration);
 
@@ -38,12 +39,11 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
             services.AddDbContext<Context>(options => options.UseSqlServer(connectionString), ServiceLifetime.Transient);
 
-            // Mock para IServicoEmail
+            // // Mock para IServicoEmail
             // services.RemoveAll(typeof(IServicoEmail));
             // var mockServicoEmail = Substitute.For<IServicoEmail>();
             // services.AddSingleton(mockServicoEmail);
         });
 
-        builder.UseEnvironment("test");
     }
 }

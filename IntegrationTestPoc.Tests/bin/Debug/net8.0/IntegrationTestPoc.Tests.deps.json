@@ -37,6 +37,7 @@
       "IntegrationTestPoc.Tests/1.0.0": {
         "dependencies": {
           "Dapper": "2.1.66",
+          "FluentAssertions": "8.2.0",
           "IntegrationTestPoc": "1.0.0",
           "IntegrationTestPoc.Util": "1.0.0",
           "IntegrationTestProc.Infra": "1.0.0",
@@ -420,6 +421,17 @@
         },
         "compile": {
           "lib/net8.0/Docker.DotNet.X509.dll": {}
+        }
+      },
+      "FluentAssertions/8.2.0": {
+        "runtime": {
+          "lib/net6.0/FluentAssertions.dll": {
+            "assemblyVersion": "8.2.0.0",
+            "fileVersion": "8.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/net6.0/FluentAssertions.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/2.3.0": {
@@ -4829,6 +4841,13 @@
       "sha512": "sha512-XFHMC/iWHbloQgg9apZrxu010DmSamaAggu8nomCqTeotGyUGkv2Tt/aqk1ljC/4tjtTrb9LtFQwYpwZbMbiKg==",
       "path": "docker.dotnet.enhanced.x509/3.126.1",
       "hashPath": "docker.dotnet.enhanced.x509.3.126.1.nupkg.sha512"
+    },
+    "FluentAssertions/8.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Gh4jkECcrR0i17ofCVqsiVz2+lxC+p5TYFPCrbZFi7eQQWGEZhvCDwvhycBKX1Kmtbd+H2CW/ugW7wdH9Br9NQ==",
+      "path": "fluentassertions/8.2.0",
+      "hashPath": "fluentassertions.8.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/2.3.0": {
       "type": "package",

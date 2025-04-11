@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jX/J56wgIw0=",
+  "dgSpecHash": "ic4RUAodmV0=",
   "success": true,
   "projectFilePath": "D:\\TI\\antonio.dias\\Pocs\\IntegrationTestPoc\\IntegrationTestPoc.Tests\\IntegrationTestPoc.Tests.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\antonio.dias\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
     "C:\\Users\\antonio.dias\\.nuget\\packages\\docker.dotnet.enhanced\\3.126.1\\docker.dotnet.enhanced.3.126.1.nupkg.sha512",
     "C:\\Users\\antonio.dias\\.nuget\\packages\\docker.dotnet.enhanced.x509\\3.126.1\\docker.dotnet.enhanced.x509.3.126.1.nupkg.sha512",
+    "C:\\Users\\antonio.dias\\.nuget\\packages\\fluentassertions\\8.2.0\\fluentassertions.8.2.0.nupkg.sha512",
     "C:\\Users\\antonio.dias\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.3.0\\microsoft.aspnetcore.antiforgery.2.3.0.nupkg.sha512",
     "C:\\Users\\antonio.dias\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.3.0\\microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\antonio.dias\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.3.0\\microsoft.aspnetcore.authentication.core.2.3.0.nupkg.sha512",

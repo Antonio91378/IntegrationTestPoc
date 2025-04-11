@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IntegrationTestPoc.Util")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e35d4bc92c172f1b7649f2ab9bb49cda8cbbcfd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea0cdd4e96a914bba850126d6068041e18010914")]
 [assembly: System.Reflection.AssemblyProductAttribute("IntegrationTestPoc.Util")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IntegrationTestPoc.Util")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

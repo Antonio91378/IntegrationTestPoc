@@ -47,6 +47,9 @@ public class WeatherForecastService : IWeatherForecastService
         try
         {
             var forecasts = await _repository.GetAllAsync();
+            if (forecasts == null || !forecasts.Any())
+                return messenger.ReturnNotFound404("No weather forecasts found.");
+            
             return messenger.ReturnSuccess(200, forecasts);
         }
         catch (Exception ex)

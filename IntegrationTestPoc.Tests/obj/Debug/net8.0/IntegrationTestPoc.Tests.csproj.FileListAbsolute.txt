@@ -483,3 +483,4 @@ d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Tests\obj\Debug\ne
 d:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Tests\obj\Debug\net8.0\ref\IntegrationTestPoc.Tests.dll
 D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Tests\bin\Debug\net8.0\appsettings.Test.json
 D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Tests\obj\Debug\net8.0\IntegrationTestPoc.Tests.sourcelink.json
+D:\TI\antonio.dias\Pocs\IntegrationTestPoc\IntegrationTestPoc.Tests\bin\Debug\net8.0\FluentAssertions.dll
